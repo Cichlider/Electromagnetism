@@ -1,0 +1,41 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \coordinate (A) at (-2.2,0);
+  \coordinate (T) at (0,1.5);
+  \coordinate (Bb) at (2.2,0);
+  \coordinate (Bo) at (0,-1.5);
+  \draw[wire] (A) -- (T) -- (Bb) -- (Bo) -- (A);
+  \draw[wire] (T) -- (Bo);
+  \node[left] at (A) {$A$};
+  \node[right] at (Bb) {$B$};
+  % resistor boxes rotated along each edge, centered at midpoint
+  \begin{scope}
+    \pgfmathsetmacro{\angAT}{atan2(1.5-0,0-(-2.2))}
+    \coordinate (mAT) at ($(A)!0.5!(T)$);
+    \draw[resistor,rotate around={\angAT:(mAT)}] ($(mAT)+(-0.42,-0.16)$) rectangle ($(mAT)+(0.42,0.16)$);
+    \node[above left=1pt] at ($(mAT)+(-0.15,0.25)$) {$10\,\Omega$};
+  \end{scope}
+  \begin{scope}
+    \pgfmathsetmacro{\angTB}{atan2(0-1.5,2.2-0)}
+    \coordinate (mTB) at ($(T)!0.5!(Bb)$);
+    \draw[resistor,rotate around={\angTB:(mTB)}] ($(mTB)+(-0.42,-0.16)$) rectangle ($(mTB)+(0.42,0.16)$);
+    \node[above right=1pt] at ($(mTB)+(0.15,0.25)$) {$5\,\Omega$};
+  \end{scope}
+  \begin{scope}
+    \pgfmathsetmacro{\angABo}{atan2(-1.5-0,0-(-2.2))}
+    \coordinate (mABo) at ($(A)!0.5!(Bo)$);
+    \draw[resistor,rotate around={\angABo:(mABo)}] ($(mABo)+(-0.42,-0.16)$) rectangle ($(mABo)+(0.42,0.16)$);
+    \node[below left=1pt] at ($(mABo)+(-0.15,-0.25)$) {$20\,\Omega$};
+  \end{scope}
+  \begin{scope}
+    \pgfmathsetmacro{\angBoB}{atan2(0-(-1.5),2.2-0)}
+    \coordinate (mBoB) at ($(Bo)!0.5!(Bb)$);
+    \draw[resistor,rotate around={\angBoB:(mBoB)}] ($(mBoB)+(-0.42,-0.16)$) rectangle ($(mBoB)+(0.42,0.16)$);
+    \node[below right=1pt] at ($(mBoB)+(0.15,-0.25)$) {$10\,\Omega$};
+  \end{scope}
+  % vertical bridge resistor T--Bo
+  \resbox{0}{0}{0.42}{}
+  \node[right=10pt] at (0.42,0) {$100\,\Omega$};
+\end{tikzpicture}
+\end{document}

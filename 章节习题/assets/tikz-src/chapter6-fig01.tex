@@ -1,0 +1,16 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \coordinate (O) at (0,0);
+  \draw[axis] (O) -- (0,2.6) node[above]{$Z$};
+  \draw[wire,-{Stealth[length=2.3mm]}] (O) -- (0,1.55) node[left=2pt,pos=0.65]{$\vec B$};
+  \draw[wire] (0,0.95) ellipse (1.05 and 0.3);
+  \coordinate (A) at (1.55,-0.55);
+  \draw[line width=2.4pt, green!55!black] (O) -- (A);
+  \node[right=1pt] at (A) {$A$};
+  % angle theta between the +z axis (90 deg) and OA (~ -19.5 deg), short way through the right side
+  \draw[thinwire] (0,0.65) arc[start angle=90,end angle=-19.5,radius=0.65];
+  \node at (0.5,0.2) {$\theta$};
+  \node[below=2pt] at (O) {$O$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,16 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \node[chargepos] (O) at (0,0) {$+$};
+  \node[below=1pt] at (O.south) {$O$};
+  \draw[axis] (O.east) -- (5.2,0) node[above right]{$\vec r$};
+  \coordinate (b) at (2.2,0);
+  \coordinate (a) at (3.6,0);
+  \fill (b) circle (1.3pt);
+  \fill (a) circle (1.3pt);
+  \node[below=2pt] at (b) {$b$};
+  \node[below=2pt] at (a) {$a$};
+  \node[above=2pt] at (b) {$r_b$};
+  \node[above=2pt] at (a) {$r_a$};
+\end{tikzpicture}
+\end{document}

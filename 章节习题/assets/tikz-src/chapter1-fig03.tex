@@ -1,0 +1,21 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \def\R{1.8}
+  \draw[wire] (0,0) circle (\R);
+  \fill (0,0) circle (1.3pt);
+  \node[below=2pt] at (0,0) {$O$};
+  % point charge at R/2 to the left of O
+  \coordinate (q) at (-0.9,0);
+  \fill[green!55!black] (q) circle (3pt);
+  % bracket showing R/2 from charge to O
+  \draw[thinwire] (q) ++(0,0.35) -- ++(0,0.25) -- (0,0.6) -- ++(0,-0.25);
+  \node[above] at (-0.45,0.6) {$\dfrac{R}{2}$};
+  \node[above left=2pt] at (0,\R) {$R$};
+  % axis from O to P outside
+  \draw[axis] (0,0) -- (3.4,0) node[pos=0.55,above]{$r$};
+  \coordinate (P) at (4.2,0);
+  \fill (P) circle (1.3pt);
+  \node[right=1pt] at (P) {$P$};
+\end{tikzpicture}
+\end{document}

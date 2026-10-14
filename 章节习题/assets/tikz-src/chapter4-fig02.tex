@@ -1,0 +1,16 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \node[left] at (-2.4,0) {$A$};
+  \draw[wire] (-2.4,0) -- (-1.3,0);
+  \resbox{-0.6}{0}{0.7}{$R$}
+  \draw[wire] (0.1,0) -- (0.75,0);
+  \draw[wire,{Stealth[length=2.2mm]}-] (0.1,0) -- (0.6,0);
+  \node[above] at (0.35,0.12) {$I$};
+  \battery{1.05}{0}
+  \node[above] at (1.05,0.4) {$\varepsilon\; r$};
+  \draw[wire] (1.3,0) -- (2.4,0);
+  \node[right] at (2.4,0) {$B$};
+  \node[below] at (0,-0.75) {$(b)$};
+\end{tikzpicture}
+\end{document}

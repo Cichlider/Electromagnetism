@@ -1,0 +1,18 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \def\r{1.1}
+  % three circles: left (S1) around +q, middle (S2) overlap region, right (S3) around -q
+  \coordinate (c1) at (0,0);
+  \coordinate (c2) at (1.5,0);
+  \draw[wire] (c1) circle (\r);
+  \draw[wire] (c2) circle (\r);
+  \node at (-1.0,0.95) {$S_1$};
+  \node at (0.75,1.05) {$S_2$};
+  \node at (2.5,0.95) {$S_3$};
+  \fill (-0.35,-0.3) circle (1.2pt);
+  \node[below=1pt] at (-0.35,-0.3) {$+q$};
+  \fill (1.85,-0.3) circle (1.2pt);
+  \node[below=1pt] at (1.85,-0.3) {$-q$};
+\end{tikzpicture}
+\end{document}

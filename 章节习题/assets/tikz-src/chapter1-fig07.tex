@@ -1,0 +1,19 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+  \coordinate (q) at (0,0);
+  \coordinate (a) at (3.0,1.1);
+  \coordinate (b) at (3.6,-0.5);
+  \fill (q) circle (1.3pt);
+  \node[left=1pt] at (q) {$q$};
+  \fill (a) circle (1.3pt);
+  \node[above=1pt] at (a) {$a$};
+  \fill (b) circle (1.3pt);
+  \node[below right=1pt] at (b) {$b$};
+  \draw[wire] (q) -- (a) node[pos=0.5, above left=1pt]{$r_a$};
+  \draw[wire] (q) -- (b) node[pos=0.5, below=1pt]{$r_b$};
+  % small charge q0 with a curved arrow path from a to b
+  \node[above right=1pt] at ($(a)!0.5!(b)$) {$q_0$};
+  \draw[wire,-{Stealth[length=2mm]}] (a) .. controls ($(a)!0.45!(b)!0.25!90:(b)$) and ($(a)!0.7!(b)!-0.1!90:(b)$) .. (b);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,34 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \def\R{1.3}
+  % chord endpoints splitting the circle: small wedge S1 on the right, S2 the rest
+  \coordinate (P1) at (0.60,1.17);
+  \coordinate (P2) at (0.60,-1.17);
+  \draw[wire] (0,0) circle (\R);
+  \draw[wire] (P1) -- (P2);
+  % S1: hatched lens-shaped region on the right (small sliver)
+  \begin{scope}
+    \clip (0,0) circle (\R);
+    \clip (P1) -- (P2) -- (2.6,0) -- cycle;
+    \fill[pattern=north east lines, pattern color=black!60] (0,0) circle (\R);
+  \end{scope}
+  % S2: dotted region (current out of page) on the left, majority of circle
+  \begin{scope}
+    \clip (0,0) circle (\R);
+    \clip (P1) -- (P2) -- (-2.6,0) -- cycle;
+    \foreach \x in {-1.1,-0.8,...,1.1} {
+      \foreach \y in {-1.1,-0.8,...,1.1} {
+        \fill (\x,\y) circle (0.9pt);
+      }
+    }
+  \end{scope}
+  \node at (-0.55,0) {$I$};
+  \node[left=2pt] at (-0.95,-0.7) {$S_2$};
+  \node[right=2pt] at (0.95,0.3) {$S_1$};
+  % loop arrow L outside the circle, upper right, with a leader line to the wedge
+  \draw[thinwire] (0.75,0.55) -- (1.75,1.1);
+  \draw[wire,-{Stealth[length=2.2mm]}] (2.1,0.95) arc[start angle=160,end angle=70,radius=0.5];
+  \node[above right=1pt] at (2.15,1.25) {$L$};
+\end{tikzpicture}
+\end{document}

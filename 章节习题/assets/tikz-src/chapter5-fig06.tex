@@ -1,0 +1,18 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \def\R{0.85}
+  \draw[wire] (0,\R) circle (\R);
+  \fill (0,\R) circle (1.1pt);
+  \node[left=1pt] at (-0.05,\R) {$O$};
+  \draw[thinwire,-{Stealth[length=2mm]}] (0,\R) -- (0.58,\R+0.58);
+  \node[above right=-2pt] at (0.3,\R+0.3) {$R$};
+  % small curved arrow at the top of the loop indicating current direction
+  \draw[wire,-{Stealth[length=2mm]}] (-0.35,2*\R-0.12) arc[start angle=200,end angle=260,radius=0.3];
+  % straight wire through point P at the bottom of the circle
+  \draw[wire,-{Stealth[length=2.2mm]}] (-2.4,0) -- (-0.15,0);
+  \draw[wire,-{Stealth[length=2.2mm]}] (0.15,0) -- (2.4,0);
+  \fill (0,0) circle (1.1pt);
+  \node[below=2pt] at (0,0) {$P$};
+\end{tikzpicture}
+\end{document}

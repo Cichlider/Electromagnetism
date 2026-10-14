@@ -1,0 +1,15 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \def\R{1.0}
+  \draw[dashedwire] (-2.6,0) -- (-\R,0);
+  \draw[dashedwire,-{Stealth[length=2.2mm]}] (-2.6,0) -- (-2.0,0);
+  \node[above] at (-2.3,0.1) {$I$};
+  \draw[wire] (-\R,0) arc[start angle=180,end angle=0,radius=\R];
+  \draw[dashedwire] (\R,0) -- (2.6,0);
+  \fill (0,0) circle (1.2pt);
+  \node[below=1pt] at (0,0) {$O$};
+  \draw[thinwire,-{Stealth[length=2mm]}] (0,0) -- (0.78,0.63);
+  \node[above right=-1pt] at (0.4,0.33) {$R$};
+\end{tikzpicture}
+\end{document}

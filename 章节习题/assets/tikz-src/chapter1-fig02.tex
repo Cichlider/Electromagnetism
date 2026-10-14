@@ -1,0 +1,23 @@
+\input{common}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \def\R{1.6}
+  \filldraw[pattern=north east lines, pattern color=black!55, draw=black, line width=0.9pt] (0,0) circle (\R);
+  % irregular cavity near lower-right, drawn as a smooth blob
+  \filldraw[fill=white, draw=black, line width=0.8pt]
+    plot [smooth cycle, tension=0.7] coordinates {
+      (0.55,-0.75) (0.95,-0.55) (1.15,-0.70) (1.05,-0.95)
+      (0.75,-1.05) (0.45,-0.95)
+    };
+  \node (q) at (0.78,-0.78) {};
+  \fill (q) circle (1.1pt);
+  \node[above right=0.5pt] at (q) {$q$};
+  \fill (0,0) circle (1.3pt);
+  \node[below right=1pt] at (0,0) {$O$};
+  \coordinate (P) at (-2.6,1.7);
+  \fill (P) circle (1.3pt);
+  \node[above left=1pt] at (P) {$P$};
+  \draw[wire] (P) -- (0,0);
+  \node[above=1pt] at ($(P)!0.5!(0,0)$) {$r$};
+\end{tikzpicture}
+\end{document}
